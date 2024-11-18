@@ -8,8 +8,6 @@ FROM nginx:latest
 COPY index.html /usr/share/nginx/html/index.html
 EOF
 # me logueo
-docker login -u facungv
-#aqui colocar el token
 echo "Creando imagen de Docker… "
 # Creo la imagen web1-gasparrini basada en nginx
 docker build -t facungv/web1-gasparrini:latest .
