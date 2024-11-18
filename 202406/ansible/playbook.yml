@@ -1,0 +1,14 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: "Ejecutar 2do_parcial"
+      import_role:
+        name: 2do_parcial
+      tags:
+        - 2do_parcial
+
+    - name: "Otra tarea"
+      debug:
+        msg: "Despues de la ejecucion del rol"

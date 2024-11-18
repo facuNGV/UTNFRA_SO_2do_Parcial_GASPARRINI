@@ -1,0 +1,34 @@
+---
+# tasks file for 2do_parcial
+
+- debug:
+    msg: "Tareas del 2do Parcial"
+
+---
+- name: Crear directorios necesarios
+  file:
+    path: "/tmp/2do_parcial/{{ item }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0755'
+  loop:
+    - alumno
+    - equipo
+
+- name: Generar datos_alumno.txt
+  template:
+    src: datos_alumno.j2
+    dest: /tmp/2do_parcial/alumno/datos_alumno.txt
+
+- name: Generar datos_equipo.txt
+  template:
+    src: datos_equipo.j2
+    dest: /tmp/2do_parcial/equipo/datos_equipo.txt
+
+- name: Configurar sudoers para 2PSupervisores
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    line: '%2PSupervisores ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
