@@ -1,5 +1,5 @@
 #!/bin/bash
-PATH_DE_TRABAJO_DOCKER="/home/vagrant/repogit/UTN-FRA_SO_Examenes/202406/docker"
+PATH_DE_TRABAJO_DOCKER="/$HOME/UTNFRA_SO_2do_Parcial_GASPARRINI/202406/docker"
 echo "-----------------------------------------------------------------------------------------------------------"
 cd $PATH_DE_TRABAJO_DOCKER
 # creo dockerfile
@@ -19,7 +19,6 @@ docker images
 # touch run.sh
 sudo chmod 777 run.sh
 ./run.sh
-cd /home/vagrant/RTA_Examen_20241116/
 echo "-------------------------------------------------------------------------------------------------------------"
 # Indico donde correr el contenedor
 echo " script que corre el contenedor disponible en el path: "
